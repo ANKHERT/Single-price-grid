@@ -1,0 +1,248 @@
+:root {
+  --cyan:179, 62%, 43%;
+  --bright-yellow: 71, 73%, 54%;
+  --light-gray: 204, 43%, 93%;
+  --grayish-blue: 218, 22%, 67%;
+
+  --ff-family: 'Karla', sans-serif;
+
+  --fw-400: 400;
+  --fw-700: 700;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* utilities */
+
+.bg-cyan {
+  background: hsl(var(--cyan));
+
+}
+
+.bg-light-cyan {
+  background: hsla(180, 95%, 30%, 0.611);
+  border-bottom-left-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  overflow: hidden;
+}
+
+.bg-yellow {
+  background: hsl(var(--bright-yellow))
+}
+
+.bg-gray {
+  background: hsl(var(--light-gray));
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+  overflow: hidden;
+}
+
+.bg-gayish-blue {
+  background: hsl(var(--grayish-blue))
+}
+
+/* general style */
+
+body {
+  font-family: var(--ff-family);
+  background: hsl(var(--grayish-blue));
+  font-weight: var(--fw-400);
+
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+
+.grid-card {
+  width: min(95% - 2rem, 50rem);
+  display: grid;
+  margin-inline: auto;
+  padding-block: 4rem;
+}
+
+.card {
+  padding: 2rem 1rem;
+}
+
+
+
+.card h1 {
+  color: hsl(var(--cyan));
+  font-size: 2rem;
+  margin-block-end: 1rem;
+
+}
+
+.card h2 {
+  margin-block-end: 1rem;
+}
+
+.card h2,
+.price p {
+  font-size: 1.2rem;
+  color: hsl(var(--light-gray));
+}
+
+.price p {
+  font-size: 2rem;
+  font-weight: var(--fw-700);
+}
+
+.card .yellow-title {
+  color:hsl(var(--bright-yellow));
+  line-height: 1.1;
+}
+
+.card-text,
+.price {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: hsl(var(--grayish-blue));
+}
+
+
+.bg-cyan .card-text,
+.bg-cyan .span {
+   color: hsl(var(--light-gray));
+}
+
+.flex .span {
+  font-size: 0.9rem;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  border-radius:.3rem;
+  -webkit-border-radius:.3rem;
+  -moz-border-radius:.3rem;
+  -ms-border-radius:.3rem;
+  -o-border-radius:.3rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  margin-block-start: 1rem;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+}
+
+.btn:is(:hover, :focus) {
+  opacity: .7;
+}
+
+.bg-light-cyan p {
+  color: hsl(var(--light-gray));
+  font-size: 0.8rem;
+}
+
+/* footer */
+
+.attribution {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #234;
+  
+}
+
+.attribution a {
+  text-decoration: none;
+  /* color: hsl(var(--cyan)); */
+  font-weight: var(--fw-700);
+}
+
+@media(min-width: 40em) {
+  .grid-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bg-gray {
+    grid-column: 1 / -1;
+  }
+
+  .bg-light-cyan {
+    border-bottom-left-radius: 0;
+  }
+
+  .bg-cyan {
+    border-bottom-left-radius: 0.3rem;
+  }
+}
